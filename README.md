@@ -6,22 +6,35 @@ API REST desenvolvida em Node.js para uma plataforma de apostas baseada no jogo 
 
 * Node.js (v24.15.0)
 * Express.js
-* PostgreSQL
+* PostgreSQL (hospedado no Supabase)
 * dotenv
 * cors
 * bcrypt
 * nodemon
 
+## Banco de Dados
+
+Este projeto utiliza o **Supabase** como serviço de banco de dados PostgreSQL na nuvem. Não é necessário instalar o PostgreSQL localmente.
+
+Para configurar o banco de dados:
+
+1. Acesse [supabase.com](https://supabase.com) e crie uma conta gratuita
+2. Crie um novo projeto
+3. Acesse **Connect** → **Direct** → copie a **Connection string**
+4. Use as credenciais no arquivo `.env` conforme instruções abaixo
+
+> **Importante:** O projeto já possui um banco configurado e funcional. Para testar sem configurar um banco próprio, solicite as credenciais ao autor do projeto.
+
 ## Pré-requisitos
 
 * Node.js instalado
-* PostgreSQL instalado e em execução
+* Conta no Supabase (gratuita) **ou** credenciais fornecidas pelo autor
 
 ## Instalação
 
 Clone o repositório:
 ```bash
-git clone https://github.com/usuario/api-campo-minado.git
+git clone https://github.com/ntmoreira/api-campo-minado.git
 ```
 
 Acesse a pasta do projeto:
@@ -39,20 +52,17 @@ npm install
 Crie um arquivo `.env` na raiz do projeto com base no `.env.example`:
 
 ```env
-DB_HOST=localhost
-DB_PORT=5432
-DB_NAME=campo_minado
-DB_USER=postgres
-DB_PASSWORD=postgres
+DB_HOST=seu_host_supabase
+DB_PORT=6543
+DB_NAME=postgres
+DB_USER=postgres.seu_usuario_supabase
+DB_PASSWORD=sua_senha
 
 PORT=3000
 NODE_ENV=development
 ```
 
-Crie o banco de dados no PostgreSQL:
-```sql
-CREATE DATABASE campo_minado;
-```
+> **Nota:** As variáveis acima são obtidas no painel do Supabase em **Connect** → **Transaction pooler**.
 
 Execute a migration para criar as tabelas:
 ```bash
@@ -186,3 +196,9 @@ api-campo-minado
 ├── package.json
 └── README.md
 ```
+
+## Integrantes
+
+* Natan Ulisses A. Moreira
+* Paulo Henrique da Silva Lage
+* Andre Luiz
