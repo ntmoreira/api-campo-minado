@@ -67,7 +67,7 @@ async function revelarPosicao(gameId, { linha, coluna }) {
     premioAtual = 0;
     await jogoRepository.atualizarAposReveal({
       id: gameId,
-      posicoesReveladas: novasPosicoesReveladas,
+      tabuleiro: tabuleiro,
       diamantesEncontrados,
       premioAtual,
       status,
